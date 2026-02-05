@@ -15,15 +15,16 @@ int main (){
         printf("1. Torre\n");
         printf("2. Bispo\n");
         printf("3. Rainha\n");
-        printf("4. Sair\n");
+        printf("4. Cavalo\n");
+        printf("5. Sair\n");
         printf("Escolha uma opção:");
         scanf("%d", &opcao);
 
-         if (opcao == 4 ) // if que faz o controle do que está sendo digitado
+         if (opcao == 5 ) // if que faz o controle do que está sendo digitado
     {
         printf("Encerrando o programa\n");
         return 0;
-    }else if (opcao > 4 || opcao <=0)
+    }else if (opcao > 5 || opcao <=0)
     {
         printf("Digite uma opção válida\n");
     }
@@ -74,6 +75,27 @@ int main (){
         } while (j < i );
           opcao = 0;
         break;
+
+        case 4:
+        printf("Cavalo selecionado\n"); // Abaixo loop aninhado para movitação do cavalo
+        printf("Movendo Cavalo\n");
+
+        for (int  i = 0; i < 1; i++)
+        {
+            while (j < 2)
+            {
+                printf("Baixo\n");
+
+                j++;
+            }
+            printf("Esquerda\n");
+          
+        }
+        
+        opcao = 0;
+        
+        break;
+
     default:
         opcao = 0;
         break;
