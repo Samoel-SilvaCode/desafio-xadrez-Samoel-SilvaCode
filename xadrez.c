@@ -1,10 +1,47 @@
 #include <stdio.h>
 
+
+void torre(int n){ // recursividade da torre
+if (n > 0 ) // Se o número inserido for maior que zero vai executar
+    {
+    printf("Direita\n");// mostra o movimento
+    torre(n-1);// decrementa
+    }
+ }
+
+ void rainha(int n){ // recursividade da rainha
+if (n > 0 ) // Se o número inserido for maior que zero vai executar
+    {
+    printf("Esquerda\n");// mostra o movimento
+    torre(n-1);// decrementa
+    }
+ }
+
+
+  void bispo(int n){ // recursividade da rainha
+
+   if (n > 0) // Se o número inserido for maior que zero vai executar
+   {
+    for (int i = 0; i < 1; i++) // Executa apenas uma vez, porém o que define a quantidade de vezes de execução é o número inserido
+        printf("Cima\n");
+    {
+        for (int j = 0; j < 1; j++){// Executa apenas uma vez, porém o que define a quantidade de vezes de execução é o número inserido
+             printf("Direita\n");
+        }
+    }
+    bispo(n-1);// decrementa
+   }
+
+  }
+ 
+
+
+
 int main (){
 
     int opcao;
-    int i = 0;
     int j = 0;
+    int i =0;
 
         printf("#### Movimento de peças de Xadrez ####\n");
         // Menu que exige o input do usuário de acordo com as opções apresentadas
@@ -39,70 +76,56 @@ int main (){
     switch (opcao)
     {
     case 1:
-        int i;
         printf("Torre selecionada\n");
         printf("Informe a quantidade de casas que a torre deve se mover\n");
         scanf("%d", &i); // opção do usuário decidir a quantidade de casas que anda
-        for (int l = 0; l < i; l++)
-        {
-            printf("Direita\n");
-        }
-        opcao = 0; // volta por menu de escola das peças
+        torre(i); // chama o procedimento  recursivo torre
+        opcao = 0;// retorna pro menu depois do usuario se mover
         break;
 
     case 2:
         printf("Bispo selecionado\n");
         printf("Informe a quantidade de casas que o bispo deve se mover\n");
-        scanf("%d", &i);
-        while ( j < i)
-        {
-            printf("Cima, Direita\n");
-
-            j++;
-        }
-          opcao = 0;
+        scanf("%d", &i);// opção do usuário decidir a quantidade de casas que anda
+        bispo(i);
+        opcao = 0;
         break;
         
         case 3:
         printf("Rainha selecionada\n");
         printf("Informe a quantidade de casas que a Rainha deve se mover\n");
-        scanf("%d", &i);
-        
-        do
-        {
-            printf("Esquerda\n");
-            j++;
-        } while (j < i );
-          opcao = 0;
+        scanf("%d", &i);// opção do usuário decidir a quantidade de casas que anda
+        rainha(i); // chama o procedimento  recursivo rainha
+  
+        opcao = 0;// retorna pro menu depois do usuario se mover
         break;
 
         case 4:
-        printf("Cavalo selecionado\n"); // Abaixo loop aninhado para movitação do cavalo
+        printf("Cavalo selecionado\n");
         printf("Movendo Cavalo\n");
 
         for (int  i = 0; i < 1; i++)
         {
-            while (j < 2)
-            {
-                printf("Baixo\n");
-
-                j++;
-            }
-            printf("Esquerda\n");
+           for (int i = 0, j = 2;  i < 2 && j >0 ; i++ , j--) // Loop aninhado com duas variaves e condição é pra formar o L
+           {
+                printf("Cima\n");
+           }
+           
+           printf("Direta\n");
           
         }
         
-        opcao = 0;
+        opcao = 0;// retorna pro menu depois do usuario se mover
         
         break;
 
     default:
-        opcao = 0;
+        opcao = 0; // retorna pro menu 
         break;
     }
     
        } while (opcao <= 0 || opcao > 4); // while aqui embaixo pra manter o programa funcionando
 
-    return 0;
+    return 0; // retorna pro menu depois do usuario se mover
 }
 
